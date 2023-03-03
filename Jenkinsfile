@@ -30,6 +30,13 @@ pipeline {
 
       }
     }
+    
 }
-  
+  post {
+    always {
+      deleteDir()
+      sh 'docker rmi 285451070707.dkr.ecr.us-east-1.amazonaws.com/node-app-project:${BUILD_NUMBER}'
+    }
+
+  }
 }
